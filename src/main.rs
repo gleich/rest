@@ -1,7 +1,5 @@
-use rocket::{
-    build,
-    fs::{relative, FileServer},
-};
+use rocket::build;
+use rocket::fs::{relative, FileServer};
 
 mod personal;
 mod result;
