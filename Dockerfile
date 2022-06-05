@@ -8,4 +8,4 @@ COPY . .
 
 RUN cargo build --release
 
-CMD ./target/release/rocket
+CMD ./target/release/rest
