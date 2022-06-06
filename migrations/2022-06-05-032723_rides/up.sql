@@ -1,4 +1,4 @@
-CREATE TABLE rides (
+CREATE TABLE activities (
     id serial NOT NULL,
     title character varying(255) NOT NULL,
     location character varying(255) NOT NULL,
