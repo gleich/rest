@@ -4,7 +4,7 @@ use anyhow::{Context, Result};
 use chrono::NaiveDate;
 use diesel::{Connection, PgConnection, RunQueryDsl};
 
-use crate::schema::rides;
+use crate::schema::activities;
 
 pub fn connect() -> Result<PgConnection> {
     let database_url = env::var("DATABASE_URL").context("DATABASE_URL must be set")?;
@@ -13,12 +13,13 @@ pub fn connect() -> Result<PgConnection> {
         .context(format!("Failed to connect to {}", database_url))?)
 }
 
-pub fn fetch_rides(database: &PgConnection) -> Result<Vec<Ride>> {
-    Ok(rides::table.load::<Ride>(database)?)
+pub fn fetch_rides(database: &PgConnection) -> Result<Vec<Activity>> {
+    Ok(activities::table.load::<Activity>(database)?)
 }
 
 #[derive(Debug, Queryable, AsChangeset)]
-pub struct Ride {
+#[table_name(activities)]
+pub struct Activity {
     pub id: i32,
     pub title: String,
     pub location: String,
