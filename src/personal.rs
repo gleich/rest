@@ -30,7 +30,7 @@ pub fn route() -> Json<Data> {
         last_name: String::from("Gleich"),
         bday: *BIRTHDAY,
         age: ((Utc::now() - *BIRTHDAY).num_seconds() as f32 / 31556952.0),
-        school: String::from("Goffstown High School"),
+        school: String::from("Rochester Institute of Technology"),
         location: String::from("Goffstown, New Hampshire, US"),
     })
 }
